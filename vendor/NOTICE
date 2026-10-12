@@ -1,0 +1,10 @@
+Xiaomi Watch S3 (M2313W1) ws3 binary format toolchain
+======================================================
+
+The packer `Mi8WfBinTool.java` and `patch_header.py` are vendored from the
+MIT-licensed project:
+
+    https://github.com/thecoolboyhan/xiaomi-watch-s3-diy
+
+Based on reverse-engineering knowledge from ooflet/Mi-Create (MIT).
+See LICENSE in the repository root for full license text.

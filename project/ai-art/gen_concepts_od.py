@@ -93,5 +93,13 @@ def generate(slug, prompt):
     print(f"WROTE {dest} ({im.size}, {len(raw)} raw bytes from {f['name']})")
 
 
-for slug, prompt in CONCEPTS:
-    generate(slug, prompt)
+if __name__ == "__main__":
+    import sys as _sys
+    _args = _sys.argv[1:]
+    if len(_args) >= 2:
+        # CLI override: <slug> <prompt> [<slug> <prompt> ...]
+        for i in range(0, len(_args) - 1, 2):
+            generate(_args[i], _args[i + 1])
+    else:
+        for slug, prompt in CONCEPTS:
+            generate(slug, prompt)

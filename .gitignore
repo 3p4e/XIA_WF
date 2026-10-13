@@ -13,3 +13,4 @@ project/ai-art/*/_aod_bg.png
 
 # v1 art backup (historical, kept out of tree)
 project/ai-art/raw_v1/
+project/ai-art/backups/

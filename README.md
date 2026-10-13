@@ -30,6 +30,24 @@ Previews:
 
 Compiled binary: `deliverables/Mono.bin`
 
+### `AiArt-*` — AI-artwork dials
+
+Three faces built on AI-generated full-bleed dial artwork, each with an AOD variant.
+Same proven widget set as `Mono` (date · HH:MM blink · steps · HR · calories · battery),
+composited over a processed AI-art background.
+
+| Face | Art direction | Binary |
+|---|---|---|
+| `AiArt-photoreal_ocean` | aerial turquoise ocean | `deliverables/AiArt-photoreal_ocean.bin` |
+| `AiArt-minimal_abstract` | navy/gold minimal arc | `deliverables/AiArt-minimal_abstract.bin` |
+| `AiArt-cyberpunk` | neon city, purple/cyan | `deliverables/AiArt-cyberpunk.bin` |
+
+Generation pipeline: the 3 concepts were generated with an image model, saved to
+`project/ai-art/raw/`, then post-processed by `project/ai-art/gen_concepts.py`
+(crop 464×464, circular mask, **≤256 colors**) into `project/ai-art/processed/`.
+`project/ai-art/gen_face.py` then composes the watch-safe sprites.
+Previews: `project/ai-art/<face>/preview.png` and `preview_aod.png`.
+
 ---
 
 ## Build (Linux / macOS)

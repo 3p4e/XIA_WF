@@ -298,8 +298,9 @@ def build_concept(concept):
     IMG = os.path.join(outdir, "images")
     IMG_AOD = os.path.join(outdir, "images_aod")
 
-    # normal + aod backgrounds
-    aod_bg = os.path.join(outdir, "_aod_bg.png")
+    # normal + aod backgrounds (AOD bg is an intermediate; keep it out of the repo tree)
+    import tempfile
+    aod_bg = tempfile.mktemp(suffix="_aod_bg.png")
     Image.new("RGBA", (W, H), (0, 0, 0, 255)).save(aod_bg)
 
     gen_set(IMG, PAL, bg_art)

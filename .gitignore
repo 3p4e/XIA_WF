@@ -6,3 +6,7 @@ __pycache__/
 
 # Agent Zero runtime project metadata
 .a0proj/
+
+# face intermediates
+_aod_bg.png
+project/ai-art/*/_aod_bg.png

@@ -10,3 +10,6 @@ __pycache__/
 # face intermediates
 _aod_bg.png
 project/ai-art/*/_aod_bg.png
+
+# v1 art backup (historical, kept out of tree)
+project/ai-art/raw_v1/

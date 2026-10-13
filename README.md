@@ -38,14 +38,22 @@ composited over a processed AI-art background.
 
 | Face | Art direction | Binary |
 |---|---|---|
-| `AiArt-photoreal_ocean` | aerial turquoise ocean | `deliverables/AiArt-photoreal_ocean.bin` |
-| `AiArt-minimal_abstract` | navy/gold minimal arc | `deliverables/AiArt-minimal_abstract.bin` |
-| `AiArt-cyberpunk` | neon city, purple/cyan | `deliverables/AiArt-cyberpunk.bin` |
+| `AiArt-photoreal_ocean` | aerial deep-blue ocean, volcanic island | `deliverables/AiArt-photoreal_ocean.bin` |
+| `AiArt-minimal_abstract` | charcoal + teal/violet aurora rings | `deliverables/AiArt-minimal_abstract.bin` |
+| `AiArt-cyberpunk` | rainy neon street, magenta/blue bokeh | `deliverables/AiArt-cyberpunk.bin` |
 
-Generation pipeline: the 3 concepts were generated with an image model, saved to
-`project/ai-art/raw/`, then post-processed by `project/ai-art/gen_concepts.py`
-(crop 464×464, circular mask, **≤256 colors**) into `project/ai-art/processed/`.
-`project/ai-art/gen_face.py` then composes the watch-safe sprites.
+Generation pipeline (Open Design in the loop): the 3 backgrounds are generated
+**natively through the self-hosted Open Design instance** by
+`project/ai-art/gen_concepts_od.py` (surface `image`, model
+`gemini-3.1-flash-image-preview` via the `nanobanana` provider), which calls
+Open Design's `POST /api/projects/<id>/media/generate`, waits on
+`POST /api/media/tasks/<id>/wait`, and downloads the result from
+`/api/projects/<id>/raw/<file>` into `project/ai-art/raw/`.
+`project/ai-art/gen_assets.py` then post-processes each raw image
+(crop 464×464, circular mask, **≤256 colors**) into `project/ai-art/processed/`,
+and `project/ai-art/gen_face.py` composes the watch-safe sprites + `wfDef.json`.
+
+Legacy direct-API generator (kept for reference): `project/ai-art/gen_concepts.py`.
 Previews: `project/ai-art/<face>/preview.png` and `preview_aod.png`.
 
 ---
